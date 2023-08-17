@@ -1,0 +1,84 @@
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --green: #2ac1bc;
+  --red: #db2f20;
+  --gray: #bbbbbb;
+  --light-gray: #f6f6f6;
+  --strong-gray: #726a6a;
+  --dark-gray: #222222;
+  --border-gray: #e6e6e6;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: var(--white);
+  font-style: bold;
+  font-weight: normal;
+  letter-spacing: -0.05em;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-family: "Nanum Gothic", "Apple SD Gothic Neo", arial, sans-serif;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.App {
+  justify-self: center;
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (max-width: 700vw) {
+  html {
+    font-size: 75%;
+  }
+}
+
+@media only screen and (min-width: 1400vw) {
+  html {
+    font-size: 100%;
+  }
+}
+
+.strike {
+  position: relative;
+  display: inline-block;
+}
+.strike::before {
+  content: "";
+  border-bottom: 0.533vw solid black;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 35%;
+}
+
+@keyframes loading {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+a {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
