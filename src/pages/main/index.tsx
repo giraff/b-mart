@@ -1,3 +1,8 @@
+import { BannerSlider } from "@/components/BannerSlider";
+import { CartBadge } from "@/components/CartBadge";
+import { CategoryIconGrid } from "@/components/CategoryIconGrid";
+import { HotDealSection } from "@/components/HotDealSection";
+import { ProductSection } from "@/components/ProductSection";
 import { useEffect, useState } from "react";
 
 interface Product {
@@ -32,7 +37,7 @@ export default function Main() {
   return (
     <div>
       <div>Header</div>
-      {/* 메인 배너
+      메인 배너
       <BannerSlider />
       <CategoryIconGrid />
       <ProductSection />
@@ -41,9 +46,8 @@ export default function Main() {
       <ProductSection />
       <ProductSection />
       <ProductSection />
-      <ProductSection /> 
+      <ProductSection />
       <CartBadge />
-      */}
     </div>
   );
 }
