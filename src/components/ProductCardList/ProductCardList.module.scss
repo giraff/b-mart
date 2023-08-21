@@ -1,0 +1,6 @@
+.card_list {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}

@@ -1,0 +1,23 @@
+.production_section {
+  display: grid;
+  flex-direction: column;
+  width: 100%;
+  margin: 20px 0;
+  overflow-x: scroll;
+}
+
+.header_container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.product_grid_container {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.product_list_container {
+  width: 100%;
+  padding-left: 10px;
+  overflow-x: scroll;
+}

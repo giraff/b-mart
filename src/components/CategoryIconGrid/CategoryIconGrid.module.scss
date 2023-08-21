@@ -1,0 +1,20 @@
+.category_container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  padding: 10px 0;
+  row-gap: 10px;
+}
+
+.category_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & > img {
+    border: 2px solid var(--black);
+    padding: 3px;
+    border-radius: 50px;
+  }
+}

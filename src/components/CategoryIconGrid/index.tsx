@@ -1,7 +1,7 @@
-import { Category } from "@/mocks/handlers";
 import Image from "next/image";
 import React from "react";
 import s from "./CategoryIconGrid.module.scss";
+import { Category } from "@/types/product";
 
 interface Props {
   categories: Category[];
@@ -12,7 +12,7 @@ export function CategoryIconGrid({ categories }: Props): React.ReactElement {
     <div className={s.category_container}>
       {categories?.map((category) => (
         <div key={category.id} className={s.category_item}>
-          <Image src={category.thumbnail} alt={category.name} width={120} height={120} />
+          <Image className={s.category_image} src={category.thumbnail} alt={category.name} width={60} height={60} />
           <div>{category.name}</div>
         </div>
       ))}

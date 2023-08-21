@@ -1,0 +1,30 @@
+.section_header {
+  display: flex;
+  align-items: center;
+  height: 10px;
+  padding: 0 5px;
+}
+
+.title_container {
+  flex: none;
+  font-weight: bold;
+  font-size: 12px;
+  margin-right: 3px;
+
+  &.category {
+    font-size: 11px;
+    line-height: 15px;
+  }
+}
+
+.description_container {
+  flex: none;
+  font-weight: bold;
+  font-size: 10px;
+  vertical-align: bottom;
+  color: var(--green);
+}
+
+.trailing_container {
+  margin-left: auto;
+}
