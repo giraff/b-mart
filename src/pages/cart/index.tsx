@@ -1,6 +1,4 @@
-import { CartHeader } from "@/components/CartHeader";
 import { CartSection } from "@/components/CartSection";
-import { CartTool } from "@/components/CartTool/CartTool";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import s from "@/styles/index.module.scss";
 import { useRouter } from "next/router";
@@ -21,9 +19,6 @@ export default function Cart() {
           <div onClick={() => router.push("/category")}>hamburger</div>
         </div>
       </div>
-      <CartHeader />
-
-      <CartTool />
       <CartSection />
     </LayoutTemplate>
   );

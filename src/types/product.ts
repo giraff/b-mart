@@ -17,11 +17,6 @@ export interface Category {
   subCategory?: Category[];
 }
 
-export interface SubCategory extends Category {
-  name: string;
-  categoryId: number;
-}
-
 export interface Banner {
   id: number;
   redirectUrl: string;

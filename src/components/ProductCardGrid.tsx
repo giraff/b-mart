@@ -1,8 +1,7 @@
 import { Product } from "@/types/product";
-import Image from "next/image";
 import React from "react";
 import s from "./ProductCardGrid.module.scss";
-import { generateProductCards } from "../ProductCard";
+import { generateProductCards } from "./ProductCard";
 
 interface Props {
   products: Product[];

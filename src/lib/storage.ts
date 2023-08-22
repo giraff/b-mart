@@ -1,13 +1,27 @@
 export function getFavorite() {
-  if (!localStorage.getItem("favorite")) return [];
-  else return JSON.parse(localStorage.getItem("favorite") || "[]");
+  try {
+    if (!localStorage.getItem("favorite")) return [];
+    else return JSON.parse(localStorage.getItem("favorite") || "[]");
+  } catch (e) {
+    return [];
+  }
 }
 
 export function getSearch() {
-  if (!localStorage.getItem("recently_search")) return [];
-  else return JSON.parse(localStorage.getItem("recently_search") || "[]");
+  try {
+    if (!localStorage.getItem("recently_search")) return [];
+    else return JSON.parse(localStorage.getItem("recently_search") || "[]");
+  } catch (e) {
+    return [];
+  }
 }
 
 export function setSearch(keywords: string[]) {
-  return localStorage.setItem("recently_search", JSON.stringify([...keywords]));
+  try {
+    return localStorage.setItem("recently_search", JSON.stringify([...keywords]));
+  } catch (e) {
+    return undefined;
+  }
 }
+
+//

@@ -2,13 +2,12 @@ import { mockApiService } from "@/apis/api.mock";
 import { BannerSlider } from "@/components/BannerSlider";
 import { CartBadge } from "@/components/CartBadge";
 import { CategoryIconGrid } from "@/components/CategoryIconGrid";
-import { HotDealSection } from "@/components/HotDealSection";
 import { ProductSection } from "@/components/ProductSection";
-import { MAIN_BANNERS, MID_BANNERS } from "@/components/common/constant";
+import { MAIN_BANNERS, MID_BANNERS } from "@/constant/constant";
 import { useContext, useEffect, useState } from "react";
 import { LayoutTemplate } from "@/components/Layout";
 import { FavoriteContext } from "./_app";
-import { MdKeyboardArrowLeft, MdKeyboardBackspace } from "react-icons/md";
+import { MdKeyboardArrowLeft } from "react-icons/md";
 import { useRouter } from "next/router";
 import s from "@/styles/index.module.scss";
 
@@ -23,24 +22,14 @@ export default function Main() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [favorite, setFavorite] = useContext(FavoriteContext);
   const router = useRouter();
-  const getProducts = async () => {
-    // TODO : loading true
-    const data = await mockApiService.getProducts();
-    // TODO : loding false
-    setProducts(data);
-  };
-
-  const getCategories = async () => {
-    // TODO : loading true
-    const data = await mockApiService.getCategories();
-    // TODO : loading false
-    setCategories(data);
-  };
 
   const handleLikeIconClick = async (productId: number) => {
     // const data = await mockApiService.setFavorite(productId);
-    if (!localStorage.getItem("favorite")) return localStorage.setItem("favorite", JSON.stringify([productId]));
-    const originFavorite = JSON.parse(localStorage.getItem("favorite") || "[]");
+    if (!localStorage.getItem("favorite")) {
+      return localStorage.setItem("favorite", JSON.stringify([productId]));
+    }
+
+    const originFavorite = JSON.parse(localStorage.getItem("favorite") || "[]"); // try-catch
     if (originFavorite.includes(productId)) {
       const newFavorite = originFavorite.filter((pid: number) => pid !== productId);
       setFavorite([...newFavorite]);
@@ -52,15 +41,22 @@ export default function Main() {
     }
   };
 
-  useEffect(() => {
-    if (categories.length !== 0) return;
-    getCategories();
-  }, [categories]);
+  const getProducts = async () => {
+    const data = await mockApiService.getProducts();
+    setProducts(data);
+  };
+
+  const getCategories = async () => {
+    const data = await mockApiService.getCategories();
+    setCategories(data);
+  };
 
   useEffect(() => {
+    if (categories.length !== 0) return;
     if (products.length !== 0) return;
+    getCategories();
     getProducts();
-  }, [products]);
+  }, []);
 
   return (
     <LayoutTemplate>
@@ -84,7 +80,6 @@ export default function Main() {
         viewType="list"
         onLikeIconClick={handleLikeIconClick}
       />
-      <HotDealSection />
       <BannerSlider banners={MID_BANNERS} />
       <ProductSection
         columns={4}

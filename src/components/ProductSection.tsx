@@ -1,9 +1,9 @@
 import { Product } from "@/types/product";
 import React from "react";
 import s from "./ProductSection.module.scss";
-import { SectionHeader } from "../SectionHeader";
-import { ProductCardGrid } from "../ProductCardGrid";
-import { ProductCardList } from "../ProductCardList";
+import { SectionHeader } from "./SectionHeader";
+import { ProductCardGrid } from "./ProductCardGrid";
+import { ProductCardList } from "./ProductCardList";
 
 interface Props {
   columns: number;

@@ -89,17 +89,29 @@ export function BannerSlider({ banners }: Props): React.ReactElement {
 
   const slides = totalCount > 1 ? [banners[totalCount - 1], ...banners, banners[0]] : banners;
   return (
-    <div className={s.slider_container}>
-      <div className={s.banner_list} ref={listRef}>
-        {slides.map((banner, i) => {
-          return (
-            <div className={s.banner_item} key={i}>
-              <Image src={banner.imageUrl} alt={`${banner.id}`} fill />
-            </div>
-          );
-        })}
+    <>
+      <div className={s.slider_container}>
+        <div className={s.banner_list} ref={listRef}>
+          {slides.map((banner, i) => {
+            return (
+              <div className={s.banner_item} key={i}>
+                <Image src={banner.imageUrl} alt={`${banner.id}`} fill />
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <div>{`${currentIndex} ${totalCount}`}</div>
-    </div>
+      <div className={s.carousel_dots}>
+        {slides.map((_, i) => (
+          <span
+            key={i}
+            className={`${s.dot} ${i === currentIndex ? s.active_dot : ""}`}
+            onClick={() => setCurrentIndex(i)}
+          >
+            점
+          </span>
+        ))}
+      </div>
+    </>
   );
 }

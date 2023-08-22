@@ -1,5 +1,4 @@
 import { RecentSearchSection } from "@/components/RecentSearchSection";
-import { SearchResultSection } from "@/components/SearchResultSection";
 import { useRouter } from "next/router";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import s from "@/styles/index.module.scss";
@@ -14,7 +13,6 @@ export default function Search() {
     const noDuplicatedArr = recentKeywork.filter((key) => key !== searchKeyword);
     // TODO : Search button -> 최신 검색어 갱신 + product의 name 중 input값이 includes 된 애들만 filter
     setRecentKeyword([...noDuplicatedArr, searchKeyword]);
-    // setRecentKeyword(getSearchText());
   };
 
   return (
@@ -30,7 +28,6 @@ export default function Search() {
           <div onClick={() => handleSearchClick()}>search</div>
         </div>
       </div>
-      <SearchResultSection />
       <RecentSearchSection recentKeywork={recentKeywork} setRecentKeyword={setRecentKeyword} />
     </LayoutTemplate>
   );

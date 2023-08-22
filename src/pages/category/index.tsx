@@ -1,9 +1,8 @@
 import { BannerSlider } from "@/components/BannerSlider";
 import { CartBadge } from "@/components/CartBadge";
 import { CategoryIconGrid } from "@/components/CategoryIconGrid";
-import { SubCategoryGrid } from "@/components/SubCategoryGrid";
 import { useEffect, useState } from "react";
-import { MID_BANNERS } from "../../components/common/constant";
+import { MID_BANNERS } from "../../constant/constant";
 import { Category } from "@/types/product";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { useRouter } from "next/router";
@@ -37,7 +36,6 @@ export default function Category() {
         </div>
       </div>
       <BannerSlider banners={MID_BANNERS} />
-      <SubCategoryGrid />
       <CategoryIconGrid categories={categories} />
       <CartBadge />
     </LayoutTemplate>

@@ -8,6 +8,9 @@ class ApiPathStorage {
   public get setFavorite() {
     return "/favorite";
   }
+  public get getSubCategories() {
+    return `/categories/`;
+  }
 }
 
 export const apiPathStorage = new ApiPathStorage();

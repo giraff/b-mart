@@ -1,6 +1,5 @@
 import axios from "axios";
 import { apiPathStorage } from "./api.path";
-import { getFavorite } from "@/lib/storage";
 
 interface mockupType {
   [key: string]: {
@@ -21,52 +20,112 @@ const mockup: mockupType = {
       {
         id: 1,
         name: "SeaFood",
-        thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png"
+        thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png",
+        subCategory: [
+          { id: 11, name: "빵", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 12, name: "시리얼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 13, name: "떡", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 14, name: "잼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" }
+        ]
       },
       {
         id: 2,
         name: "JunkFood",
-        thumbnail: "https://cdn-icons-png.flaticon.com/128/1404/1404945.png"
+        thumbnail: "https://cdn-icons-png.flaticon.com/128/1404/1404945.png",
+        subCategory: [
+          { id: 15, name: "빵", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 16, name: "시리얼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 17, name: "떡", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 18, name: "잼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" }
+        ]
       },
       {
         id: 3,
         name: "Fish",
-        thumbnail: "https://cdn-icons-png.flaticon.com/128/11520/11520652.png"
+        thumbnail: "https://cdn-icons-png.flaticon.com/128/11520/11520652.png",
+        subCategory: [
+          { id: 19, name: "빵", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 20, name: "시리얼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 21, name: "떡", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 22, name: "잼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" }
+        ]
       },
       {
         id: 4,
         name: "milk",
-        thumbnail: "https://cdn-icons-png.flaticon.com/128/11520/11520787.png"
+        thumbnail: "https://cdn-icons-png.flaticon.com/128/11520/11520787.png",
+        subCategory: [
+          { id: 23, name: "빵", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 24, name: "시리얼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 25, name: "떡", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 26, name: "잼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" }
+        ]
       },
       {
         id: 5,
         name: "bread",
-        thumbnail: "https://cdn-icons-png.flaticon.com/128/783/783054.png"
+        thumbnail: "https://cdn-icons-png.flaticon.com/128/783/783054.png",
+        subCategory: [
+          { id: 27, name: "빵", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 28, name: "시리얼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 29, name: "떡", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 30, name: "잼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" }
+        ]
       },
       {
         id: 6,
         name: "ice-cream",
-        thumbnail: "https://cdn-icons-png.flaticon.com/128/2830/2830305.png"
+        thumbnail: "https://cdn-icons-png.flaticon.com/128/2830/2830305.png",
+        subCategory: [
+          { id: 31, name: "빵", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 32, name: "시리얼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 33, name: "떡", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 34, name: "잼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" }
+        ]
       },
       {
         id: 7,
         name: "hair",
-        thumbnail: "https://cdn-icons-png.flaticon.com/128/3496/3496508.png"
+        thumbnail: "https://cdn-icons-png.flaticon.com/128/3496/3496508.png",
+        subCategory: [
+          { id: 35, name: "빵", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 36, name: "시리얼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 37, name: "떡", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 38, name: "잼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" }
+        ]
       },
       {
         id: 8,
         name: "mealkit",
-        thumbnail: "https://cdn-icons-png.flaticon.com/128/4465/4465494.png"
+        thumbnail: "https://cdn-icons-png.flaticon.com/128/4465/4465494.png",
+        subCategory: [
+          { id: 39, name: "빵", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 40, name: "시리얼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 41, name: "떡", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 42, name: "잼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" }
+        ]
       },
       {
         id: 9,
         name: "snack",
-        thumbnail: "https://cdn-icons-png.flaticon.com/128/1236/1236977.png"
+        thumbnail: "https://cdn-icons-png.flaticon.com/128/1236/1236977.png",
+        subCategory: [
+          { id: 43, name: "빵", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 44, name: "시리얼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 45, name: "떡", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 46, name: "잼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" }
+        ]
       },
       {
         id: 10,
         name: "more",
-        thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png"
+        thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png",
+        subCategory: [
+          { id: 47, name: "빵", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 48, name: "시리얼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 49, name: "떡", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" },
+          { id: 50, name: "잼", thumbnail: "https://cdn-icons-png.flaticon.com/512/10107/10107601.png" }
+        ]
       }
     ]
   },
@@ -173,7 +232,7 @@ const mockup: mockupType = {
     }
   }
 };
-
+//api call - null undefined, error handling
 class ApiService {
   private readonly axiosInstance = axios.create({
     baseURL: "/",
@@ -185,6 +244,11 @@ class ApiService {
   }
   public async getCategories() {
     const { data } = await this.axiosInstance.get(apiPathStorage.getCategories);
+    return data;
+  }
+
+  public async getSubCategories(cid: number) {
+    const { data } = await this.axiosInstance.get(`/categories/${cid}`);
     return data;
   }
 
